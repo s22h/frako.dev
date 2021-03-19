@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	@font-face {
+		font-family: Roboto;
+		font-display: swap;
+		src: url("/fonts/Roboto[ital,wdth,wght].ttf");
+	}
+
+	a {
+		@apply text-primary hover:text-main;
+	}
+
+	h1 {
+		@apply text-2xl sm:text-3xl md:text-4xl text-gray-900 font-light
+	}
+}
+
+@layer components {
+	.prose :is(p, ul, ol) {
+		@apply my-4;
+	}
+
+	.prose :is(ul, ol) {
+		@apply pl-8 py-2 border border-gray-200 bg-gray-100;
+	}
+
+	.prose ul {
+		@apply list-disc;
+	}
+
+	.prose ol {
+		@apply list-decimal;
+	}
+
+	.prose h2 {
+		@apply text-xl md:text-3xl font-bold mt-12 mb-4;
+	}
+
+	.prose h3 {
+		@apply text-lg md:text-xl font-bold mt-12 mb-4;
+	}
+}
