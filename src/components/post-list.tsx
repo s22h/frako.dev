@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 import Link from "next/link";
-import React from "react";
 import { Post } from "../../src/types";
+import PostBody from "./post-body";
 
 type PageProps = {
 	posts: Post[];
@@ -9,17 +9,24 @@ type PageProps = {
 
 export default function PostList({ posts }: PageProps) {
 	return (
-		<ul className="my-8 space-y-4">
+		<div className="mb-8 space-y-8 divide-y divide-gray-200">
 			{posts.map(post => (
-				<li key={post.uri}>
-					<Link href={post.uri}>
-						<a className="block text-xl">{post.title}</a>
-					</Link>
-					<time className="block" dateTime={post.pubDate}>
+				<article key={post.uri} className="pt-8">
+					<h2 className="text-xl">
+						<Link href={post.uri}>
+							<a>{post.title}</a>
+						</Link>
+					</h2>
+
+					<time className="block my-4" dateTime={post.pubDate}>
 						{format(new Date(post.pubDate), "dd.MM.yyyy HH:mm")}
 					</time>
-				</li>
+
+					<div className="prose">
+						<PostBody content={post.body} excerpt />
+					</div>
+				</article>
 			))}
-		</ul>
+		</div>
 	);
 }

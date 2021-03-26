@@ -14,13 +14,17 @@
 	}
 
 	h1 {
-		@apply text-2xl sm:text-3xl md:text-4xl text-gray-900 font-light
+		@apply text-2xl sm:text-3xl md:text-4xl text-gray-900 font-light;
 	}
 }
 
 @layer components {
 	.prose :is(p, ul, ol) {
 		@apply my-4;
+	}
+
+	.prose :is(p, ul, ol):last-child {
+		@apply mb-0;
 	}
 
 	.prose :is(ul, ol) {
