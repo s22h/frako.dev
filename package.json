@@ -6,7 +6,8 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"export": "next export"
+		"export": "next export",
+		"cli": "node scripts/cli.mjs"
 	},
 	"dependencies": {
 		"date-fns": "^2.19.0",
@@ -17,7 +18,8 @@
 		"rehype-react": "^6.2.0",
 		"remark-parse": "^9.0.0",
 		"remark-rehype": "^8.0.0",
-		"unified": "^9.2.1"
+		"unified": "^9.2.1",
+		"yargs": "^16.2.0"
 	},
 	"devDependencies": {
 		"@tailwindcss/jit": "^0.1.3",
