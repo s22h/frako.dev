@@ -15,7 +15,8 @@ module.exports = {
 				gray: colors.coolGray
 			},
 			gridTemplateColumns: {
-				article: "minmax(auto, 64ch) 32ch"
+				article: "minmax(auto, 64ch) 32ch",
+				list: "max-content 1fr"
 			},
 			gridTemplateRows: {
 				article: "auto 1fr"

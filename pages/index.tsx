@@ -24,9 +24,7 @@ export default function IndexPage({ posts }: PageProps) {
 			<div className="max-w-prose mx-auto">
 				<h1>Recent blog posts</h1>
 
-				<ul className="list-disc pl-4 my-8">
-					<PostList posts={posts} />
-				</ul>
+				<PostList posts={posts} />
 			</div>
 		</Layout>
 	);
