@@ -4,6 +4,7 @@ import PostList from "../../src/components/post-list";
 import { getPostsByTag } from "../../src/database";
 import { Post, Tag } from "../../src/types";
 import Tags from "../../content/tags.json";
+import Main from "../../src/components/main";
 
 export async function getStaticPaths() {
 	return {
@@ -48,13 +49,13 @@ type PageProps = {
 export default function CategoryPage({ posts, tag }: PageProps) {
 	return (
 		<Layout title={tag.name} uri={tag.uri}>
-			<div className="max-w-prose mx-auto">
+			<Main>
 				<h1>
 					Posts tagged <b>{tag.name}</b>
 				</h1>
 
 				<PostList posts={posts} />
-			</div>
+			</Main>
 		</Layout>
 	);
 }

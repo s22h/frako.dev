@@ -9,7 +9,7 @@ type PageProps = {
 
 export default function PostList({ posts }: PageProps) {
 	return (
-		<div className="mb-8 space-y-8 divide-y divide-gray-200">
+		<div className="divide-y divide-gray-200 space-y-8">
 			{posts.map(post => (
 				<article key={post.uri} className="pt-8">
 					<h2 className="text-xl">
@@ -19,7 +19,7 @@ export default function PostList({ posts }: PageProps) {
 					</h2>
 
 					<time className="block my-4" dateTime={post.pubDate}>
-						{format(new Date(post.pubDate), "dd.MM.yyyy HH:mm")}
+						{format(new Date(post.pubDate), "EEEE, d MMMM yyyy, HH:mm")}
 					</time>
 
 					<div className="prose">

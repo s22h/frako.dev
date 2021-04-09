@@ -8,6 +8,9 @@ module.exports = {
 			sans: ["Roboto", "sans-serif"]
 		},
 		extend: {
+			backgroundImage: {
+				main: "url('/bg.webp')"
+			},
 			colors: {
 				primary: "#ff0055",
 				main: colors.coolGray["700"],

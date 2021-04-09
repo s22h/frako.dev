@@ -4,6 +4,7 @@ import PostList from "../../src/components/post-list";
 import { getPostsByAuthor } from "../../src/database";
 import { Author, Post } from "../../src/types";
 import Authors from "../../content/authors.json";
+import Main from "../../src/components/main";
 
 export async function getStaticPaths() {
 	return {
@@ -48,13 +49,13 @@ type PageProps = {
 export default function AuthorPage({ posts, author }: PageProps) {
 	return (
 		<Layout title={author.name} uri={author.uri}>
-			<div className="max-w-prose mx-auto">
+			<Main>
 				<h1>
 					Posts by <b>{author.name}</b>
 				</h1>
 
 				<PostList posts={posts} />
-			</div>
+			</Main>
 		</Layout>
 	);
 }

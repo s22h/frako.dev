@@ -1,9 +1,10 @@
 import Layout from "../src/components/layout";
+import Main from "../src/components/main";
 
 export default function LegalInformationPage() {
 	return (
 		<Layout title="Legal Information" uri="/legal-information">
-			<div className="max-w-prose mx-auto">
+			<Main>
 				<h1>Legal information</h1>
 
 				<div className="prose my-8">
@@ -23,7 +24,7 @@ export default function LegalInformationPage() {
 						<a href="mailto:legal@frako.dev">legal@frako.dev</a>
 					</p>
 				</div>
-			</div>
+			</Main>
 		</Layout>
 	);
 }

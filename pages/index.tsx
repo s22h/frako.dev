@@ -2,6 +2,7 @@ import Layout from "../src/components/layout";
 import PostList from "../src/components/post-list";
 import { Post } from "../src/types";
 import { getPosts } from "../src/database";
+import Main from "../src/components/main";
 
 export async function getStaticProps() {
 	// TODO: pagination
@@ -21,11 +22,11 @@ type PageProps = {
 export default function IndexPage({ posts }: PageProps) {
 	return (
 		<Layout uri="/">
-			<div className="max-w-prose mx-auto">
+			<Main>
 				<h1>Recent blog posts</h1>
 
 				<PostList posts={posts} />
-			</div>
+			</Main>
 		</Layout>
 	);
 }
