@@ -28,7 +28,7 @@
 	}
 
 	.prose :is(ul, ol) {
-		@apply pl-8 py-2 border border-gray-200 bg-gray-100;
+		@apply pl-8;
 	}
 
 	.prose ul {
@@ -45,5 +45,9 @@
 
 	.prose h3 {
 		@apply text-lg md:text-xl font-bold mt-12 mb-4;
+	}
+
+	.prose pre code {
+		@apply block relative z-10 bg-gray-900 text-white p-4 text-sm overflow-x-auto xl:overflow-x-hidden xl:hover:w-[180%];
 	}
 }

@@ -6,5 +6,9 @@
 	{
 		"name": "Programming",
 		"slug": "programming"
+	},
+	{
+		"name": "WebDev",
+		"slug": "webdev"
 	}
 ]
