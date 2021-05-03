@@ -1,29 +1,37 @@
-import React, { createElement } from "react";
-import unified from "unified";
-import markdown from "remark-parse";
-import remark2rehype from "remark-rehype";
-import rehype2react from "rehype-react";
+import parse from "html-react-parser";
+import Link from "next/link";
 
 type Props = {
 	content: string;
 	excerpt?: boolean;
+	uri?: string;
 };
 
-export default function PostBody({ content, excerpt }: Props) {
+export default function PostBody({ content, excerpt, uri }: Props) {
 	let contentOrExcerpt = content;
+	let hasMarker = false;
 
 	if (excerpt) {
 		const matches = contentOrExcerpt.match(/^(.*)<!--\s*MORE\s*-->/s);
 
 		if (matches) {
 			contentOrExcerpt = matches[1];
+			hasMarker = true;
 		}
 	}
 
-	const processor = unified()
-		.use(markdown)
-		.use(remark2rehype)
-		.use(rehype2react, { createElement: createElement, Fragment: React.Fragment });
-	const body = processor.processSync(contentOrExcerpt).result as JSX.Element;
-	return body;
+	return (
+		<>
+			{parse(contentOrExcerpt)}
+			{excerpt && hasMarker && uri ? (
+				<p>
+					<Link href={uri}>
+						<a>Continue reading …</a>
+					</Link>
+				</p>
+			) : (
+				""
+			)}
+		</>
+	);
 }

@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import marked from "marked";
 import { compareDesc } from "date-fns";
 import { Post, Tag } from "./types";
 import Authors from "../content/authors.json";
@@ -69,7 +70,7 @@ async function getPostsFromFiles(files: string[], options: GetPostOptions) {
 				title: frontmatter.data["title"],
 				slug: frontmatter.data["slug"],
 				uri: `/post/${frontmatter.data["slug"]}`,
-				body: frontmatter.content,
+				body: marked(frontmatter.content),
 				pubDate: frontmatter.data["pubDate"],
 				author: {
 					...author,

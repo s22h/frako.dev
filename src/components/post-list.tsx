@@ -23,7 +23,7 @@ export default function PostList({ posts }: PageProps) {
 					</time>
 
 					<div className="prose">
-						<PostBody content={post.body} excerpt />
+						<PostBody content={post.body} excerpt uri={post.uri} />
 					</div>
 				</article>
 			))}
